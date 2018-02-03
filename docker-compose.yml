@@ -1,5 +1,5 @@
 flask:
-  build: .
+  build: Dockerfiles/python-flask-pymongo
 #  volumes:
 #    - code:/code
   links:
