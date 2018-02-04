@@ -1,14 +1,13 @@
 flask:
-  build: Dockerfiles/python-flask-pymongo
-#  volumes:
-#    - code:/code
+  build: .
+  command: python -u app.py
+  volumes:
+    - .:/code
   links:
-    - mongodb
+    - datastore
   ports:
     - "5000:5000"
-mongodb:
-  build: Dockerfiles/mongo
-#   volumes:
-#     - data:/data
+datastore:
+  image: mongo:3.6.2
   ports:
     - "27017:27017"

@@ -5,15 +5,10 @@ WORKDIR /code
 
 RUN apk --update add python py-pip
 RUN apk add
+RUN pip install -r requirements.txt
 
 ## Flask Extensions
 RUN pip install flask-wtf
 RUN pip install flask-bootstrap
 RUN pip install flask-pymongo
 RUN pip install flask-mail
-
-EXPOSE 5000
-
-COPY testDockerCompose/app.py /code
-
-CMD ["python", "app.py"]
